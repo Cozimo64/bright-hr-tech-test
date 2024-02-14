@@ -1,6 +1,7 @@
 import React from 'react';
 import { Document } from '../types/documents';
 import { DocumentItemStyle } from './StyledComponents';
+import { formatFileSize } from '../utils/formatFileSize'; // Make sure this path is correct
 
 interface DocumentItemProps {
   document: Document;
@@ -14,7 +15,7 @@ const DocumentItem: React.FC<DocumentItemProps> = ({ document }) => {
       <div className="document-details">
         {document.size && (
           <span className="document-size">
-            {document.size}MB | {document.type.toUpperCase()}
+            {formatFileSize(document.size)} | {document.type.toUpperCase()}
           </span>
         )}
       </div>
@@ -23,3 +24,4 @@ const DocumentItem: React.FC<DocumentItemProps> = ({ document }) => {
 };
 
 export default DocumentItem;
+
